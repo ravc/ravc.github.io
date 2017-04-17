@@ -6,7 +6,7 @@
     <script>
       $(document).ready(function() {
         $.getJSON('https://freegeoip.net/json/').done(function(location) {
-          $.getJSON('http://api.openweathermap.org/data/2.5/find?lat=' + location.latitude + '&lon='+ location.longitude + '&units=imperial&appid=3bd1d87cf87a57950ca71c6b514201bf',function(result)  {
+          $.getJSON('https://api.openweathermap.org/data/2.5/find?lat=' + location.latitude + '&lon='+ location.longitude + '&units=imperial&appid=3bd1d87cf87a57950ca71c6b514201bf',function(result)  {
             $('#temp').html(result.list[0].main.temp);
             $('#stat').html(result.list[0].weather[0].description);
           });
