@@ -8,8 +8,8 @@
       $(document).ready(function() {
         $.getJSON('https://freegeoip.net/json/').done(function(location) {
           $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + location.latitude + '&lon='+ location.longitude + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
-            $('#temp').html(result.data.temp);
-            $('#stat').html(result.data.weather.description);
+            $('#temp').html(result.temp);
+            $('#stat').html(result.weather.description);
           });
         });
         $('body').css('background', 'url(' + (Math.round(Math.random() * 12) + 1) + '.jpg) no-repeat center center fixed');
@@ -77,7 +77,7 @@
   </head>
   <body>
     <span id=time></span>
-    <form autocomplete=off action=http://google.com/search method=get>
+    <form autocomplete=off action=https://google.com/search method=get>
       <input autofocus name=q>
     </form>
     <span id=temp>--</span>
