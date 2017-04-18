@@ -7,7 +7,7 @@
     <script>
       $(document).ready(function() {
         $.getJSON('https://freegeoip.net/json/').done(function(location) {
-          $.getJSON('https://api.openweathermap.org/data/2.5/find?lat=' + location.latitude + '&lon='+ location.longitude + '&units=imperial&appid=3bd1d87cf87a57950ca71c6b514201bf',function(result)  {
+          $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + location.latitude + '&lon='+ location.longitude + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
             $('#temp').html(result.list[0].main.temp);
             $('#stat').html(result.list[0].weather[0].description);
           });
