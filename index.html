@@ -8,9 +8,8 @@
       $(document).ready(function() {
         $.getJSON('https://freegeoip.net/json/').done(function(location) {
           $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + location.latitude + '&lon='+ location.longitude + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
-            console.log(result)
-            $('#temp').html(result.data.temp);
-            $('#stat').html(result.data.weather.description);
+            $('#temp').html(result.data[0].temp);
+            $('#stat').html(result.data[0].weather.description);
           });
         });
         $('body').css('background', 'url(' + (Math.round(Math.random() * 12) + 1) + '.jpg) no-repeat center center fixed');
