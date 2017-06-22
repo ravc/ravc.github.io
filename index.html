@@ -12,7 +12,7 @@
             $('#stat').html(result.data[0].weather.description);
           });
         });
-        $('body').css('background', 'url(' + (Math.round(Math.random() * 12) + 1) + '.jpg) no-repeat center center fixed');
+        $('body').css('background', 'url(https://unsplash.it/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
         startTime();
       });
 
@@ -36,7 +36,8 @@
         -webkit-background-size: cover;
         background-size: cover;
         color: #fff;
-        font: 5vmin bold Arial, Helvetica, sans-serif;
+        font: 10vmin bold Arial, Helvetica, sans-serif;
+        text-shadow: 2px 2px 4px #000000;
         margin: 0;
         overflow-x: hidden;
         overflow-y: hidden;
@@ -53,10 +54,11 @@
         background: none;
         border: none;
         color: #fff;
-        font-size: 5vmin;
+        font-size: 8vmin;
         margin: 50px auto;
         outline: none;
         text-align: center;
+        text-shadow: 2px 2px 4px #000000;
         position: absolute;
         left: 0;
         top: 35%;
