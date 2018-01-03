@@ -3,16 +3,17 @@
   <head>
     <meta name="viewport" content="width=device-width; initial-scale=1">
     <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <script src=jquery-3.1.1.js></script>
     <script>
       $(document).ready(function() {
         $.getJSON('https://freegeoip.net/json/').done(function(location) {
           $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + location.latitude + '&lon='+ location.longitude + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
-            $('#temp').html(result.data[0].temp);
+            $('#temp').html(result.data[0].temp + '°');
             $('#stat').html(result.data[0].weather.description);
           });
         });
-        $('body').css('background', 'url(https://unsplash.it/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
+        $('body').css('background', 'url(https://picsum.photos/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
         startTime();
       });
 
@@ -36,7 +37,8 @@
         -webkit-background-size: cover;
         background-size: cover;
         color: #fff;
-        font: 10vmin bold Arial, Helvetica, sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font: 10vmin roboto;
         text-shadow: 2px 2px 4px #000000;
         margin: 0;
         overflow-x: hidden;
@@ -54,6 +56,8 @@
         background: none;
         border: none;
         color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font: roboto;
         font-size: 8vmin;
         margin: 50px auto;
         outline: none;
