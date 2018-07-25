@@ -7,7 +7,7 @@
     <script src=jquery-3.1.1.js></script>
     <script>
       $(document).ready(function() {
-        $.getJSON('http://ipinfo.io', function(data){
+        $.getJSON('https://ipinfo.io', function(data){
             latlong = data['loc'].split(',')
             $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + latlong[0] + '&lon='+ latlong[0] + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
                 console.log(result.data[0].temp)
