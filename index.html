@@ -1,21 +1,24 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <meta name="viewport" content="width=device-width; initial-scale=1" charset="utf-8">
     <title>Welcome</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <script src=jquery-3.1.1.js></script>
     <script>
       $(document).ready(function() {
-        $.getJSON('https://freegeoip.net/json/').done(function(location) {
-          $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + location.latitude + '&lon='+ location.longitude + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
-            $('#temp').html(result.data[0].temp + '°');
-            $('#stat').html(result.data[0].weather.description);
-          });
+        $.getJSON('http://ipinfo.io', function(data){
+            latlong = data['loc'].split(',')
+            $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + latlong[0] + '&lon='+ latlong[0] + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
+                console.log(result.data[0].temp)
+                $('#temp').html(result.data[0].temp + '°');
+                $('#stat').html(result.data[0].weather.description);
+            });
         });
         $('body').css('background', 'url(https://picsum.photos/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
         startTime();
       });
+        
 
       function startTime() {
         today = new Date();
