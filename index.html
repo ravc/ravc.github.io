@@ -10,7 +10,6 @@
         $.getJSON('https://ipinfo.io', function(data){
             latlong = data['loc'].split(',')
             $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + latlong[0] + '&lon='+ latlong[0] + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
-                console.log(result.data[0].temp)
                 $('#temp').html(result.data[0].temp + '°');
                 $('#stat').html(result.data[0].weather.description);
             });
