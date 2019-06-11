@@ -7,13 +7,13 @@
     <script src=jquery-3.1.1.js></script>
     <script>
       $(document).ready(function() {
-        $.getJSON('https://ipinfo.io', function(data){
+        $.getJSON('https://ipinfo.io/json', function(data){
             latlong = data['loc'].split(',')
             $.getJSON('https://api.weatherbit.io/v1.0/current?lat=' + latlong[0] + '&lon='+ latlong[0] + '&units=I&key=48bfd7f68cf34439a8f6320275aea2e6',function(result)  {
                 $('#temp').html(result.data[0].temp + '°');
                 $('#stat').html(result.data[0].weather.description);
             });
-        }, "jsonp");
+        });
         $('body').css('background', 'url(https://picsum.photos/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
         startTime();
       });
