@@ -13,7 +13,7 @@
                 $('#temp').html(result.data[0].temp + '°');
                 $('#stat').html(result.data[0].weather.description);
             });
-        });
+        }, "jsonp");
         $('body').css('background', 'url(https://picsum.photos/' + screen.width +'/' + screen.height + '/?random) no-repeat center center fixed');
         startTime();
       });
